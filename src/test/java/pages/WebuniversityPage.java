@@ -20,6 +20,6 @@ public class WebuniversityPage {
     @FindBy(xpath = "//*[@id='password']")
     public WebElement passwordKutusu;
 
-    @FindBy(xpath = "//*@[id='login-button']")
+    @FindBy(xpath = "//*[@id='login-button']")
     public WebElement loginButonu;
 }
