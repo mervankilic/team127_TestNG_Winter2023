@@ -35,16 +35,18 @@ public class C06_HardAssertion {
         // belirlenmis aranacak kelimeyi aratip urun bulundugunu test edin
         testOtomasyonuPage
                 .aramaKutusu
-                        .sendKeys(ConfigReader.getProperty("toAranacakKelime") + Keys.ENTER);
+                .sendKeys(ConfigReader.getProperty("toAranacakKelime") + Keys.ENTER);
 
         int bulunanSonucSayisi = testOtomasyonuPage.bulunanUrunElementleriList.size();
         Assert.assertTrue(bulunanSonucSayisi>0);
 
         // Nutella aratip, urun bulunmadigini test edin
-
+        ReusableMethods.bekle(2);
+        testOtomasyonuPage.aramaKutusu.clear();
         testOtomasyonuPage.aramaKutusu.sendKeys("Nutella" + Keys.ENTER);
+        ReusableMethods.bekle(2);
         bulunanSonucSayisi = testOtomasyonuPage.bulunanUrunElementleriList.size();
-        Assert.assertTrue(bulunanSonucSayisi>0);
+        Assert.assertTrue(bulunanSonucSayisi==0);
 
         // sayfayi kapatin
         ReusableMethods.bekle(2);
